@@ -32,3 +32,9 @@ Downloading sigs.k8s.io/controller-tools/cmd/controller-gen@v0.17.2
 /Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/controller-gen object:headerFile="hack/boilerplate.go.txt" paths="./..."
 Next: implement your new API and generate the manifests (e.g. CRDs,CRs) with:
 $ make manifests
+
+### Implementing a controller
+cronjob_types.go
+cronjob_controller.go
+
+### make manifests
