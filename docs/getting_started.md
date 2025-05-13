@@ -112,6 +112,9 @@ $ make generate
 Next: implement your new API and generate the manifests (e.g. CRDs,CRs) with:
 $ make manifests
 
+### make manifests
+
+config/crd/bases/batch.tutorial.kubebuilder.io_cronjobs.yaml
 
 
 
