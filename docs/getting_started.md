@@ -71,3 +71,8 @@ make build-installer IMG=harbor.mec189.cn:30443/ict/cronjob-operator:latest
 mkdir -p dist
 cd config/manager && /Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/kustomize edit set image controller=harbor.mec189.cn:30443/ict/cronjob-operator:latest
 /Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/kustomize build config/default > dist/install.yaml
+
+### helm plugin
+#kubebuilder init --plugins=helm/v1-alpha
+kubebuilder edit --plugins=helm/v1-alpha
+
