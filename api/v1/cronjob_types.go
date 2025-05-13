@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+// +kubebuilder:docs-gen:collapse=Apache License
 
 package v1
 
@@ -153,6 +154,9 @@ type CronJobStatus struct {
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
+// +kubebuilder:conversion:hub
+// +versionName=v1
+// +kubebuilder:storageversion
 
 // CronJob is the Schema for the cronjobs API.
 type CronJob struct {
