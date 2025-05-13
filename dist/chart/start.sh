@@ -1,0 +1,1 @@
+helm upgrade -i -n domain --create-namespace  cronjob-operator ./
