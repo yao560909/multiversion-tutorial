@@ -1,3 +1,4 @@
+## v1
 ### Create a project
 kubebuilder init --domain tutorial.kubebuilder.io --repo tutorial.kubebuilder.io --project-name multiversion-tutorial
 
@@ -78,9 +79,40 @@ kubebuilder edit --plugins=helm/v1-alpha
 
 Tips:
 Note that the following files will not be updated unless you use the --force flag:
+
 ![img.png](img.png)
 
 The files chart/Chart.yaml, chart/templates/_helpers.tpl, and chart/.helmignore are never updated after their initial creation unless you remove them.
 
 ### samples
 Create samples batch_v1_cronjob.yaml
+
+## v2
+
+### Adding a new API v2
+
+kubebuilder create api --group batch --version v2 --kind CronJob
+
+Tips:
+Press y for “Create Resource” and n for “Create Controller”.
+
+INFO Create Resource [y/n]                        
+y
+INFO Create Controller [y/n]                      
+n
+INFO Writing kustomize manifests for you to edit...
+INFO Writing scaffold for you to edit...          
+INFO api/v2/cronjob_types.go                      
+INFO api/v2/groupversion_info.go                  
+INFO Update dependencies:
+$ go mod tidy           
+INFO Running make:
+$ make generate                
+/Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/controller-gen object:headerFile="hack/boilerplate.go.txt" paths="./..."
+Next: implement your new API and generate the manifests (e.g. CRDs,CRs) with:
+$ make manifests
+
+
+
+
+
