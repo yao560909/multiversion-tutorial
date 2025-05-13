@@ -57,3 +57,5 @@ $ make generate
 Next: implement your new Webhook and generate the manifests with:
 $ make manifests
 
+### webhooks
+cronjob_webhook.go
