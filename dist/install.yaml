@@ -9067,7 +9067,7 @@ spec:
         - --webhook-cert-path=/tmp/k8s-webhook-server/serving-certs
         command:
         - /manager
-        image: harbor.mec189.cn:30443/ict/cronjob-operator:latest
+        image: 127.0.0.1:30443/ict/cronjob-operator:latest
         livenessProbe:
           httpGet:
             path: /healthz

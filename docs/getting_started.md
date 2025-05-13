@@ -65,11 +65,11 @@ cronjob_webhook.go
 config/webhook/manifests.yaml
 
 ### make build-installer
-make build-installer IMG=harbor.mec189.cn:30443/ict/cronjob-operator:latest
+make build-installer IMG=127.0.0.1:30443/ict/cronjob-operator:latest
 /Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/controller-gen rbac:roleName=manager-role crd webhook paths="./..." output:crd:artifacts:config=config/crd/bases
 /Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/controller-gen object:headerFile="hack/boilerplate.go.txt" paths="./..."
 mkdir -p dist
-cd config/manager && /Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/kustomize edit set image controller=harbor.mec189.cn:30443/ict/cronjob-operator:latest
+cd config/manager && /Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/kustomize edit set image controller=127.0.0.1:30443/ict/cronjob-operator:latest
 /Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/kustomize build config/default > dist/install.yaml
 
 ### helm plugin
