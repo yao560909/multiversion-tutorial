@@ -59,3 +59,7 @@ $ make manifests
 
 ### webhooks
 cronjob_webhook.go
+
+### make manifests
+
+config/webhook/manifests.yaml
