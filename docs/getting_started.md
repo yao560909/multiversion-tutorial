@@ -38,3 +38,22 @@ cronjob_types.go
 cronjob_controller.go
 
 ### make manifests
+config/rbac/role.yaml
+config/crd/bases/
+
+### Implementing defaulting/validating webhooks
+kubebuilder create webhook --group batch --version v1 --kind CronJob --defaulting --programmatic-validation
+
+INFO Writing kustomize manifests for you to edit...
+INFO Writing scaffold for you to edit...          
+INFO internal/webhook/v1/cronjob_webhook.go       
+INFO internal/webhook/v1/cronjob_webhook_test.go  
+INFO internal/webhook/v1/webhook_suite_test.go    
+INFO Update dependencies:
+$ go mod tidy           
+INFO Running make:
+$ make generate                
+/Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/controller-gen object:headerFile="hack/boilerplate.go.txt" paths="./..."
+Next: implement your new Webhook and generate the manifests with:
+$ make manifests
+
