@@ -82,3 +82,5 @@ Note that the following files will not be updated unless you use the --force fla
 
 The files chart/Chart.yaml, chart/templates/_helpers.tpl, and chart/.helmignore are never updated after their initial creation unless you remove them.
 
+### samples
+Create samples batch_v1_cronjob.yaml

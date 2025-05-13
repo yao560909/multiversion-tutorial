@@ -1,0 +1,1 @@
+kubectl apply -k ./ --namespace=domain --validate=false
