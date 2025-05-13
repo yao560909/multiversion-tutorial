@@ -76,3 +76,9 @@ cd config/manager && /Users/yaolong/Documents/gitProject/github/yao560909/multiv
 #kubebuilder init --plugins=helm/v1-alpha
 kubebuilder edit --plugins=helm/v1-alpha
 
+Tips:
+Note that the following files will not be updated unless you use the --force flag:
+![img.png](img.png)
+
+The files chart/Chart.yaml, chart/templates/_helpers.tpl, and chart/.helmignore are never updated after their initial creation unless you remove them.
+

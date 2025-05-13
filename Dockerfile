@@ -4,6 +4,13 @@ ARG TARGETOS
 ARG TARGETARCH
 
 WORKDIR /workspace
+# zoneinfo
+RUN apt-get update && \
+    apt-get install -y tzdata && \
+    rm -rf /var/lib/apt/lists/*
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /tmp/zoneinfo
+RUN echo "Asia/Shanghai" > /tmp/timezone
+
 # Copy the Go Modules manifests
 COPY go.mod go.mod
 COPY go.sum go.sum
@@ -27,6 +34,10 @@ RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} go build -a -o ma
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
 FROM gcr.io/distroless/static:nonroot
 WORKDIR /
+# zoneinfo
+COPY --from=builder /tmp/zoneinfo /etc/localtime
+COPY --from=builder /tmp/timezone /etc/timezone
+
 COPY --from=builder /workspace/manager .
 USER 65532:65532
 
