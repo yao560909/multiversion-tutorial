@@ -5,7 +5,7 @@ controllerManager:
     labels: {}
   container:
     image:
-      repository: harbor.mec189.cn:30443/ict/cronjob-operator
+      repository: 127.0.0.1:30443/ict/cronjob-operator
       tag: latest
     args:
       - "--leader-elect"
