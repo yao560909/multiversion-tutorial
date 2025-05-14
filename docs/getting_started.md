@@ -156,7 +156,8 @@ $ make generate
 Next: implement your new Webhook and generate the manifests with:
 $ make manifests
 
-
+### helm plugin
+kubebuilder edit --plugins=helm/v1-alpha
 
 
 

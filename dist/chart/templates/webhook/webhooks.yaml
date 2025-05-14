@@ -31,6 +31,26 @@ webhooks:
           - v1
         resources:
           - cronjobs
+  - name: mcronjob-v2.kb.io
+    clientConfig:
+      service:
+        name: multiversion-tutorial-webhook-service
+        namespace: {{ .Release.Namespace }}
+        path: /mutate-batch-tutorial-kubebuilder-io-v2-cronjob
+    failurePolicy: Fail
+    sideEffects: None
+    admissionReviewVersions:
+      - v1
+    rules:
+      - operations:
+          - CREATE
+          - UPDATE
+        apiGroups:
+          - batch.tutorial.kubebuilder.io
+        apiVersions:
+          - v2
+        resources:
+          - cronjobs
 ---
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
@@ -62,6 +82,26 @@ webhooks:
           - batch.tutorial.kubebuilder.io
         apiVersions:
           - v1
+        resources:
+          - cronjobs
+  - name: vcronjob-v2.kb.io
+    clientConfig:
+      service:
+        name: multiversion-tutorial-webhook-service
+        namespace: {{ .Release.Namespace }}
+        path: /validate-batch-tutorial-kubebuilder-io-v2-cronjob
+    failurePolicy: Fail
+    sideEffects: None
+    admissionReviewVersions:
+      - v1
+    rules:
+      - operations:
+          - CREATE
+          - UPDATE
+        apiGroups:
+          - batch.tutorial.kubebuilder.io
+        apiVersions:
+          - v2
         resources:
           - cronjobs
 {{- end }}
