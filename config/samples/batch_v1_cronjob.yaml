@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/name: project
     app.kubernetes.io/managed-by: kustomize
-  name: cronjob-sample
+  name: cronjob-sample-v1
 spec:
   schedule: "*/1 * * * *"
   startingDeadlineSeconds: 60

@@ -4,6 +4,21 @@ metadata:
   labels:
     app.kubernetes.io/name: multiversion-tutorial
     app.kubernetes.io/managed-by: kustomize
-  name: cronjob-sample
+  name: cronjob-sample-v2
 spec:
-  # TODO(user): Add fields here
+  schedule:
+    minute: "*/2"
+  startingDeadlineSeconds: 60
+  concurrencyPolicy: Allow # explicitly specify, but Allow is also default.
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: hello
+              image: dockerhub.kubekey.local:7443/kubesphere/busybox:1.36.1
+              args:
+                - /bin/sh
+                - -c
+                - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
