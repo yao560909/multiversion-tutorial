@@ -20,7 +20,10 @@ resources:
   path: tutorial.kubebuilder.io/api/v1
   version: v1
   webhooks:
+    conversion: true
     defaulting: true
+    spoke:
+    - v2
     validation: true
     webhookVersion: v1
 - api:

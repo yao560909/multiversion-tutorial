@@ -16,21 +16,7 @@ limitations under the License.
 
 package v1
 
-import (
-	ctrl "sigs.k8s.io/controller-runtime"
-	logf "sigs.k8s.io/controller-runtime/pkg/log"
+// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 
-	batchv1 "tutorial.kubebuilder.io/api/v1"
-)
-
-// nolint:unused
-// log is for logging in this package.
-var cronjoblog = logf.Log.WithName("cronjob-resource")
-
-// SetupCronJobWebhookWithManager registers the webhook for CronJob in the manager.
-func SetupCronJobWebhookWithManager(mgr ctrl.Manager) error {
-	return ctrl.NewWebhookManagedBy(mgr).For(&batchv1.CronJob{}).
-		Complete()
-}
-
-// TODO(user): EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
+// Hub marks this type as a conversion hub.
+func (*CronJob) Hub() {}

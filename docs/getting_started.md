@@ -116,6 +116,27 @@ $ make manifests
 
 config/crd/bases/batch.tutorial.kubebuilder.io_cronjobs.yaml
 
+### Implementing conversion
 
+kubebuilder create webhook --group batch --version v1 --kind CronJob --conversion --spoke v2 --force
 
+Tips:
+--force                        attempt to create resource even if it already exists
+
+INFO Writing kustomize manifests for you to edit...
+INFO Writing scaffold for you to edit...          
+INFO internal/webhook/v1/cronjob_webhook.go       
+INFO internal/webhook/v1/cronjob_webhook_test.go  
+INFO api/v1/cronjob_conversion.go                 
+INFO Scaffolding for spoke version: v2            
+INFO Creating spoke conversion file at: api/v2/cronjob_conversion.go
+INFO Webhook server has been set up for you.
+You need to implement the conversion.Hub and conversion.Convertible interfaces for your CRD types.
+INFO Update dependencies:
+$ go mod tidy           
+INFO Running make:
+$ make generate                
+/Users/yaolong/Documents/gitProject/github/yao560909/multiversion-tutorial/bin/controller-gen object:headerFile="hack/boilerplate.go.txt" paths="./..."
+Next: implement your new Webhook and generate the manifests with:
+$ make manifests
 
