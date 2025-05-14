@@ -14,27 +14,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package v1
+package v2
 
 import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	batchv1 "tutorial.kubebuilder.io/api/v1"
+	batchv2 "tutorial.kubebuilder.io/api/v2"
 	// TODO (user): Add any additional imports if needed
 )
 
 var _ = Describe("CronJob Webhook", func() {
 	var (
-		obj       *batchv1.CronJob
-		oldObj    *batchv1.CronJob
+		obj       *batchv2.CronJob
+		oldObj    *batchv2.CronJob
 		validator CronJobCustomValidator
 		defaulter CronJobCustomDefaulter
 	)
 
 	BeforeEach(func() {
-		obj = &batchv1.CronJob{}
-		oldObj = &batchv1.CronJob{}
+		obj = &batchv2.CronJob{}
+		oldObj = &batchv2.CronJob{}
 		validator = CronJobCustomValidator{}
 		Expect(validator).NotTo(BeNil(), "Expected validator to be initialized")
 		defaulter = CronJobCustomDefaulter{}
@@ -81,16 +81,6 @@ var _ = Describe("CronJob Webhook", func() {
 		//     oldObj.SomeRequiredField = "updated_value"
 		//     obj.SomeRequiredField = "updated_value"
 		//     Expect(validator.ValidateUpdate(ctx, oldObj, obj)).To(BeNil())
-		// })
-	})
-
-	Context("When creating CronJob under Conversion Webhook", func() {
-		// TODO (user): Add logic to convert the object to the desired version and verify the conversion
-		// Example:
-		// It("Should convert the object correctly", func() {
-		//     convertedObj := &batchv1.CronJob{}
-		//     Expect(obj.ConvertTo(convertedObj)).To(Succeed())
-		//     Expect(convertedObj).ToNot(BeNil())
 		// })
 	})
 
