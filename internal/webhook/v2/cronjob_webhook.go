@@ -85,6 +85,7 @@ func (d *CronJobCustomDefaulter) Default(ctx context.Context, obj runtime.Object
 
 	return nil
 }
+
 // applyDefaults applies default values to CronJob fields.
 func (d *CronJobCustomDefaulter) applyDefaults(cronJob *batchv2.CronJob) {
 	if cronJob.Spec.ConcurrencyPolicy == "" {
@@ -154,6 +155,7 @@ func (v *CronJobCustomValidator) ValidateDelete(ctx context.Context, obj runtime
 
 	return nil, nil
 }
+
 // validateCronJob validates the fields of a CronJob object.
 func validateCronJob(cronjob *batchv2.CronJob) error {
 	var allErrs field.ErrorList

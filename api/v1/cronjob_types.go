@@ -128,7 +128,6 @@ const (
 	ReplaceConcurrent ConcurrencyPolicy = "Replace"
 )
 
-
 /*
  Next, let's design our status, which holds observed state.  It contains any information
  we want users or other controllers to be able to easily obtain.
@@ -179,4 +178,5 @@ type CronJobList struct {
 func init() {
 	SchemeBuilder.Register(&CronJob{}, &CronJobList{})
 }
+
 // +kubebuilder:docs-gen:collapse=Root Object Definitions

@@ -24,8 +24,8 @@ import (
 	"github.com/robfig/cron"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime/schema"
-	"k8s.io/apimachinery/pkg/util/validation/field"
 	validationutils "k8s.io/apimachinery/pkg/util/validation"
+	"k8s.io/apimachinery/pkg/util/validation/field"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -86,7 +86,6 @@ func (d *CronJobCustomDefaulter) Default(ctx context.Context, obj runtime.Object
 	// Set default values
 	d.applyDefaults(cronjob)
 
-
 	return nil
 }
 
@@ -143,7 +142,6 @@ func (v *CronJobCustomValidator) ValidateUpdate(ctx context.Context, oldObj, new
 		return nil, fmt.Errorf("expected a CronJob object for the newObj but got %T", newObj)
 	}
 	cronjoblog.Info("Validation for CronJob upon update", "name", cronjob.GetName())
-
 
 	return nil, validateCronJob(cronjob)
 }
